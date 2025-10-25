@@ -1,0 +1,35 @@
+python -m venv venv : this create the virtual environment with a folder name venv
+
+
+used this command to activate the environment
+# In Git Bash on Windows, use forward slashes:
+source venv/Scripts/activate
+
+# Install Django packages
+pip install django djangorestframework django-cors-headers python-dotenv requests
+
+# Create Django project
+django-admin startproject backend .
+
+# Create the trips app
+python manage.py startapp trips
+
+# Save installed packages
+pip freeze > requirements.txt
+```
+
+After running these, your folder structure should look like:
+```
+trucking-eld-app/
+├── venv/
+├── backend/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── trips/
+│   ├── models.py
+│   ├── views.py
+│   └── ...
+├── manage.py
+└── requirements.txt
