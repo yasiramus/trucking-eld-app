@@ -146,6 +146,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # default port
     "http://localhost:3000",  # secondary
+    "https://trucking-eld-app.vercel.app",
+    "https://trucking-eld-app-git-main-yasiramus-projects.vercel.app",
+    "https://trucking-eld-afywaixri-yasiramus-projects.vercel.app"
 ]
 
 # REST Framework settings
