@@ -1,13 +1,12 @@
-# from django.shortcuts import render
-
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Trip, RestStop
-from .serializers import TripSerializer, TripInputSerializer
-from .utility.mapbox_service import MapboxService
-from .utility.hos_calculator import HOSCalculator
 
+from .models import Trip, RestStop
+
+from .serializers import TripSerializer, TripInputSerializer
+from .services.mapbox_service import MapboxService
+from .services.hos_calculator import HOSCalculator
 
 @api_view(['POST'])
 def calculate_trip(request):
@@ -34,13 +33,13 @@ def calculate_trip(request):
     data = serializer.validated_data
 
     try:
-        # Step 1: Geocode locations (convert names to coordinates)
+        #Geocode locations (convert names to coordinates)
         print("Geocoding locations...")
         current_coords = MapboxService.geocode(data['current_location'])
         pickup_coords = MapboxService.geocode(data['pickup_location'])
         drop_off_coords = MapboxService.geocode(data['drop_off_location'])
 
-        # Step 2: Get route from Mapbox
+        #Get route from Mapbox
         print("Getting route from Mapbox...")
         waypoints = [
             f"{current_coords['longitude']},{current_coords['latitude']}",
@@ -50,7 +49,7 @@ def calculate_trip(request):
 
         route = MapboxService.get_route(waypoints)
 
-        # Step 3: Calculate HOS compliance and rest stops
+        #Calculate HOS compliance and rest stops
         print("Calculating HOS compliance...")
         available_hours = HOSCalculator.calculate_available_hours(
             data['current_cycle_used']
@@ -62,7 +61,7 @@ def calculate_trip(request):
             current_cycle_used=data['current_cycle_used']
         )
 
-        # Step 4: Create trip record
+        #Create trip record
         trip = Trip.objects.create(
             current_location=data['current_location'],
             pickup_location=data['pickup_location'],
@@ -77,7 +76,7 @@ def calculate_trip(request):
             }
         )
 
-        # Step 5: Create rest stop records
+        #Create rest stop records
         for stop in rest_stops:
             RestStop.objects.create(
                 trip=trip,
@@ -87,7 +86,7 @@ def calculate_trip(request):
                 distance_from_start=stop['distance_from_start']
             )
 
-        # Step 6: Return response
+        #Return response
         response_serializer = TripSerializer(trip)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED)
 
