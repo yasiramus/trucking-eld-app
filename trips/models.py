@@ -25,7 +25,7 @@ class Trip(models.Model):
 
 class RestStop(models.Model):
     trip = models.ForeignKey(Trip, related_name='rest_stops', on_delete=models.CASCADE)
-    location = models.CharField(max_length=255)
+    location = models.CharField(max_length=100)
     stop_type = models.CharField(max_length=50)
     duration = models.FloatField()
     distance_from_start = models.FloatField()
