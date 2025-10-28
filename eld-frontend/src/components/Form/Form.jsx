@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "./Form.css";
 import Button from "../Button/Button";
+
+import "./Form.css";
 
 function Form({ onSubmit, loading }) {
   /**state */
