@@ -1,0 +1,91 @@
+.trip-summary {
+  width: 100%;
+}
+
+/* ==== Grid ==== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ==== Rest Stops Table ==== */
+.rest-stops-list h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.stops-table {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+.stops-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.stops-table th,
+.stops-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.stops-table th {
+  background: var(--bg);
+  font-weight: 600;
+  color: var(--text);
+  /* font-size: 0.9rem; */
+}
+
+.stops-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.stops-table tbody tr:hover {
+  background: #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.reason-cell {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ==== Stop Type Badges ==== */
+.stop-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.stop-badge.type-30-min-break {
+  background: #dbeafe;
+  color: var(--primary-dark);
+}
+
+.stop-badge.type-10-hour-rest {
+  background: #dcfce7;
+  color: var(--success);
+}
+
+.stop-badge.type-34-hour-reset {
+  background: #fef3c7;
+  color: var(--warning);
+}
+
+.stop-badge.type-fuel {
+  background: #fee2e2;
+  color: var(--danger);
+}

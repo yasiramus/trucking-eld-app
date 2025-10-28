@@ -14,6 +14,9 @@ django-admin startproject backend .
 # Create the trips app
 python manage.py startapp trips
 
+start server
+python manage.py runserver
+
 # Save installed packages
 pip freeze > requirements.txt
 ```
@@ -33,3 +36,10 @@ trucking-eld-app/
 │   └── ...
 ├── manage.py
 └── requirements.txt
+
+db clean up
+# Delete the database file
+rm db.sqlite3
+
+# Recreate fresh database
+python manage.py migrate

@@ -1,0 +1,43 @@
+/* ==== Summary Cards ==== */
+.summary-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease-in-out;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.card-content h3 {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.card-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
