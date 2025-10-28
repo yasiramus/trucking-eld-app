@@ -2,6 +2,7 @@ import { createSingleDayLog } from "./createSingleDayLog";
 import { addEvent, createBaseLog, formatHour, simulateDriving } from "./helpers";
 
 export function generateDailyLogs(tripData) {
+
     const restStops = tripData.rest_stops || [];
     const avgSpeed = tripData.total_distance / Math.max(tripData.total_duration - 2, 1);
 
@@ -43,7 +44,7 @@ export function generateDailyLogs(tripData) {
         dayLog.totalDrivingHours += totalDrivingHours;
         dayLog.totalOnDutyHours += totalOnDutyHours;
 
-        // Add rest period
+        // rest period
         dayLog.segments.push({
             type: "sleeper",
             startHour: currentHour,
@@ -53,7 +54,7 @@ export function generateDailyLogs(tripData) {
         addEvent(
             dayLog,
             formatHour(currentHour),
-            `${restStop.stop_type} - ${restStop.reason}`,
+            `${restStop.stop_type} at mile ${restStop.duration}`,
             restStop.stop_type
         );
 
@@ -61,7 +62,7 @@ export function generateDailyLogs(tripData) {
         previousRestDistance = restStop.distance_from_start;
     });
 
-    // Add final day if distance remains
+    // a final day if distance remains
     if (previousRestDistance < tripData.total_distance) {
         const miles = tripData.total_distance - previousRestDistance;
         const finalLog = createBaseLog(
