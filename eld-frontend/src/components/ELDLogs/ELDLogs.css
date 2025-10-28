@@ -1,0 +1,152 @@
+.eld-logs {
+  width: 100%;
+}
+
+.eld-info-box {
+  padding: 1.5rem;
+  background: #dbeafe;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary);
+}
+
+.eld-info-box p {
+  margin: 0.5rem 0;
+}
+
+.eld-note {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.eld-log-sheet {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.eld-header {
+  margin-bottom: 1.5rem;
+}
+
+.eld-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.eld-date {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.eld-form-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.eld-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.eld-field label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.eld-field span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+#eld-canvas {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  margin: 1rem 0;
+  background: white;
+  padding:10px
+}
+
+.eld-legend {
+  margin: 1.5rem 0;
+}
+
+.legend-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.legend-line {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-line.off-duty {
+  background: #94a3b8;
+}
+
+.legend-line.sleeper {
+  background: var(--success);
+}
+
+.legend-line.driving {
+  background: var(--primary);
+}
+
+.legend-line.on-duty {
+  background: var(--warning);
+}
+
+.eld-events {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.eld-events h4 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.eld-events ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eld-events li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.eld-events li:last-child {
+  border-bottom: none;
+}
+
+.eld-events strong {
+  color: var(--primary);
+  margin-right: 0.5rem;
+}
