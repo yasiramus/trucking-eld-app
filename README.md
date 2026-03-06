@@ -343,7 +343,7 @@ This project is for educational and assessment purposes.
 
 ---
 
-## 🙏 Acknowledgments
+###### 🙏 Acknowledgments
 
 - Mapbox for mapping services
 - FMCSA for HOS regulations documentation
